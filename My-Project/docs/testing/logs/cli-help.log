@@ -1,0 +1,52 @@
+$ pacs  --help
+exit=0 lines=25
+usage: pacs [-h] [--runtime RUNTIME] [--operator OPERATOR]
+            {init,serve,status,peer,verify,alerts,audit,synth,sim,tamper,gui,demo}
+$ pacs init --help
+exit=0 lines=9
+usage: pacs init [-h] [--ae AE] [--port PORT] [--host HOST]
+                 [--policy {block,allow}]
+$ pacs serve --help
+exit=0 lines=4
+usage: pacs serve [-h]
+
+$ pacs status --help
+exit=0 lines=4
+usage: pacs status [-h]
+
+$ pacs peer --help
+exit=0 lines=14
+usage: pacs peer [-h] [--ae AE] [--ip IP] [--port PORT] [--roles [ROLES ...]]
+                 [--description DESCRIPTION]
+$ pacs verify --help
+exit=0 lines=7
+usage: pacs verify [-h] [--study STUDY] [--sop SOP] [--patient PATIENT]
+
+$ pacs alerts --help
+exit=0 lines=9
+usage: pacs alerts [-h] [--status {open,acknowledged}] [--id ID] [{list,ack}]
+
+$ pacs audit --help
+exit=0 lines=12
+usage: pacs audit [-h] [--expect-head EXPECT_HEAD] [--out OUT] [-n N]
+                  {verify,head,export,tail}
+$ pacs synth --help
+exit=0 lines=10
+usage: pacs synth [-h] [--ct CT] [--endo ENDO] [--size SIZE] out
+
+$ pacs sim --help
+exit=0 lines=20
+usage: pacs sim [-h] --ae AE [--called CALLED] [--host HOST] [--port PORT]
+                [--level LEVEL] [--model {S,P}] [--key KEY] [--dest DEST]
+$ pacs tamper --help
+exit=0 lines=11
+usage: pacs tamper [-h] [--sop SOP] [--patient PATIENT] [--value VALUE]
+                   {pixel,studydate,delete,index-name}
+$ pacs gui --help
+exit=0 lines=5
+usage: pacs gui [-h] [--autostart]
+
+$ pacs demo --help
+exit=0 lines=5
+usage: pacs demo [-h] [--keep]
+

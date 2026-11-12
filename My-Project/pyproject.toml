@@ -1,0 +1,41 @@
+[project]
+name = "pacs-b-prototype"
+version = "0.1.0"
+description = "实验性 PACS 图像服务器原型（模块三项目 B）：DICOM C-ECHO/C-STORE/C-FIND/C-MOVE/C-GET SCP、白名单准入、完整性基线与告警审计"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "pydicom>=3.0,<3.1",
+    "pynetdicom>=3.0.4,<3.1",
+    "numpy>=2.1,<3",
+    "PyQt5>=5.15.10,<5.16",
+    # PyQt5-Qt5 5.15.3+ 不再提供 Windows wheel；锁定 5.15.2（有 win_amd64 wheel）
+    "PyQt5-Qt5==5.15.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+]
+
+[project.scripts]
+pacs = "pacs_server.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pacs_server"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+# record_property（报告“实际”列的来源）需要 xunit1 格式
+junit_family = "xunit1"
+markers = [
+    "network: 使用真实 TCP 回环 DICOM 关联的测试",
+    "concurrency: 并发验收测试（较慢）",
+    "dcmtk: 需要 work/tools/dcmtk 中的 DCMTK 独立实现",
+    "gui: PyQt5 离屏冒烟测试",
+]

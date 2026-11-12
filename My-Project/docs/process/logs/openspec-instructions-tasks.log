@@ -1,0 +1,120 @@
+- Generating instructions...
+<artifact id="tasks" change="add-pacs-image-server" schema="spec-driven">
+
+<warning>
+This artifact has unmet dependencies. Complete them first or proceed with caution.
+Missing: specs, design
+</warning>
+
+<task>
+Create the tasks artifact for change "add-pacs-image-server".
+Implementation checklist with trackable tasks
+</task>
+
+<project_context>
+<!-- This is background information for you. Do NOT include this in your output. -->
+Language: zh-CN
+All artifacts must be written in zh-CN.
+Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+</project_context>
+
+<dependencies>
+Read the current contents of these files before creating this artifact (re-read them from disk even if you saw them earlier - they may have been edited):
+
+<dependency id="specs" status="missing">
+  <path>C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\openspec\changes\add-pacs-image-server\specs\**\*.md</path>
+  <description>Detailed specifications for the change</description>
+</dependency>
+<dependency id="design" status="missing">
+  <path>C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\openspec\changes\add-pacs-image-server\design.md</path>
+  <description>Technical design document with implementation details</description>
+</dependency>
+</dependencies>
+
+<output>
+Write to: C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\openspec\changes\add-pacs-image-server\tasks.md
+</output>
+
+<instruction>
+Create the task list that breaks down the implementation work.
+
+Before writing tasks, check design.md for Open Questions. If any of them
+would change what gets built, resolve them with the user first - do not
+bake an unstated assumption into the task list.
+
+**IMPORTANT: Follow the template below for tracked tasks.** The apply phase parses
+checkbox format to track progress. A box holding only `x` counts as done,
+upper or lower case and with any spacing, so `- [ x]` is done too. Every
+other marker, including `- [~]`, `- [-]` and an empty `- []`, reads as
+unfinished. A line with no checkbox is not tracked at all.
+
+Guidelines:
+- Group related tracked tasks under ## numbered headings
+- Each tracked task MUST be a checkbox: `- [ ] X.Y Task description`
+- Tasks should be small enough to complete in one session
+- Order tasks by dependency (what must be done first?)
+- Track implementation and verification work that can be completed before
+  archive. If the requested workflow includes archive or work that requires
+  this change to be archived, preserve those steps as plain bullets in an
+  optional `## Workflow follow-up` section at the end of tasks.md. These
+  bullets are reference information outside tracked task progress.
+- Each task MUST state how to verify completion (a test, command,
+  observable behavior, or delivered artifact). Put the verification in
+  that task's checkbox description. Use a separate verification task only
+  when it checks broader integration or system behavior that spans
+  multiple implementation tasks.
+- Each task group MUST land the tests and documentation its own work
+  calls for. Do NOT collect testing or documentation into a final group -
+  when a late group first exercises work from an early one, the failures
+  cascade back through every group in between and force rework. A group
+  whose work calls for neither, such as scaffolding or dependency setup,
+  carries neither. A final group is for integration checks only, not for
+  the tests and docs an earlier group owed.
+
+Example:
+```
+# Tasks
+
+## 1. Setup
+
+- [ ] 1.1 Create new module structure and verify expected files are present
+- [ ] 1.2 Add dependencies to package.json and verify package installation succeeds
+
+## 2. Core Implementation
+
+- [ ] 2.1 Implement data export function and verify the export test passes
+- [ ] 2.2 Add CSV formatting utilities and verify unit tests cover quoting and delimiters
+- [ ] 2.3 Document the export API in docs/export.md and verify the documented command runs as written
+```
+
+When applicable, append workflow follow-up as plain bullets, for example:
+```
+## Workflow follow-up
+
+- Archive the change after the project's review requirements are satisfied.
+- Verify the archived result.
+```
+
+Reference specs for what needs to be built, design for how to build it.
+</instruction>
+
+<template>
+<!-- Use this as the structure for your output file. Fill in the sections. -->
+# Tasks
+
+## 1. <!-- Task Group Name -->
+
+- [ ] 1.1 <!-- Task description -->
+- [ ] 1.2 <!-- Task description -->
+
+## 2. <!-- Task Group Name -->
+
+- [ ] 2.1 <!-- Task description -->
+- [ ] 2.2 <!-- Task description -->
+</template>
+
+<success_criteria>
+<!-- To be defined in schema validation rules -->
+</success_criteria>
+
+</artifact>

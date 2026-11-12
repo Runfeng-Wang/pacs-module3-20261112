@@ -1,0 +1,109 @@
+== echoscu ==
+I: Requesting Association
+I: Association Accepted (Max Send PDV: 16372)
+I: Sending Echo Request (MsgID 1)
+I: Received Echo Response (Success)
+I: Releasing Association
+
+
+== storescu ==
+XMIT: .
+XMIT: .
+XMIT: .
+I: checking input files ...
+I: Requesting Association
+I: Association Accepted (Max Send PDV: 16372)
+I: Sending file: C:\Users\runru\AppData\Local\Temp\pytest-of-runru\pytest-70\test_r21_p1_dcmtk_interop0\ct\CT_1.2.826.0.1.3680043.8.498.33063742963504601762847791319763933443.dcm
+I: Sending Store Request (MsgID 1, CT)
+I: Received Store Response (Success)
+I: Sending file: C:\Users\runru\AppData\Local\Temp\pytest-of-runru\pytest-70\test_r21_p1_dcmtk_interop0\ct\CT_1.2.826.0.1.3680043.8.498.82119491071447277969762130095171032687.dcm
+I: Sending Store Request (MsgID 2, CT)
+I: Received Store Response (Success)
+I: Sending file: C:\Users\runru\AppData\Local\Temp\pytest-of-runru\pytest-70\test_r21_p1_dcmtk_interop0\ct\CT_1.2.826.0.1.3680043.8.498.18751981371463599602872188393160738694.dcm
+I: Sending Store Request (MsgID 3, CT)
+I: Received Store Response (Success)
+I: Releasing Association
+
+
+== findscu ==
+I: Requesting Association
+I: Association Accepted (Max Send PDV: 16372)
+I: Sending Find Request (MsgID 1)
+I: Request Identifiers:
+I: 
+I: # Dicom-Data-Set
+I: # Used TransferSyntax: Little Endian Explicit
+I: (0008,0052) CS [STUDY]                                  #   6, 1 QueryRetrieveLevel
+I: (0010,0020) LO [SYN0001]                                #   8, 1 PatientID
+I: (0020,000d) UI (no value available)                     #   0, 0 StudyInstanceUID
+I: (0020,1208) IS (no value available)                     #   0, 0 NumberOfStudyRelatedInstances
+I: 
+I: ---------------------------
+I: Find Response: 1 (Pending)
+I: 
+I: # Dicom-Data-Set
+I: # Used TransferSyntax: Little Endian Explicit
+I: (0008,0005) CS [ISO_IR 192]                             #  10, 1 SpecificCharacterSet
+I: (0008,0052) CS [STUDY ]                                 #   6, 1 QueryRetrieveLevel
+I: (0008,0054) AE [PACS_B]                                 #   6, 1 RetrieveAETitle
+I: (0010,0020) LO [SYN0001 ]                               #   8, 1 PatientID
+I: (0020,000d) UI [1.2.826.0.1.3680043.8.498.25104486212113011217998711002067226382] #  64, 1 StudyInstanceUID
+I: (0020,1208) IS [3 ]                                     #   2, 1 NumberOfStudyRelatedInstances
+I: 
+I: Received Final Find Response (Success)
+I: Releasing Association
+
+
+== movescu ==
+RECV: .
+RECV: .
+RECV: .
+I: Requesting Association
+I: Association Accepted (Max Send PDV: 16372)
+I: Sending Move Request (MsgID 1)
+I: Request Identifiers:
+I: 
+I: # Dicom-Data-Set
+I: # Used TransferSyntax: Little Endian Explicit
+I: (0008,0052) CS [STUDY]                                  #   6, 1 QueryRetrieveLevel
+I: (0020,000d) UI [1.2.826.0.1.3680043.8.498.25104486212113011217998711002067226382] #  64, 1 StudyInstanceUID
+I: 
+I: Sub-Association Received
+I: Sub-Association Acknowledged (Max Send PDV: 16370)
+I: Received Store Request (MsgID 2, CT)
+I: Received Move Response 1 (Pending)
+I: Received Store Request (MsgID 3, CT)
+I: Received Move Response 2 (Pending)
+I: Received Store Request (MsgID 4, CT)
+I: Received Move Response 3 (Pending)
+I: Received Final Move Response (Success)
+I: Releasing Association
+
+
+== getscu ==
+I: Requesting Association
+I: Association Accepted (Max Send PDV: 16372)
+I: Sending C-GET Request (MsgID 1)
+I: Received C-STORE Request (MsgID 2)
+I: Sending C-STORE Response (Success)
+I: Received C-GET Response (Pending)
+I: Received C-STORE Request (MsgID 3)
+I: Sending C-STORE Response (Success)
+I: Received C-GET Response (Pending)
+I: Received C-STORE Request (MsgID 4)
+I: Sending C-STORE Response (Success)
+I: Received C-GET Response (Pending)
+I: Received C-GET Response (Success)
+I: Final status report from last C-GET message:
+I:   Number of Remaining Suboperations : 0
+I:   Number of Completed Suboperations : 3
+I:   Number of Failed Suboperations    : 0
+I:   Number of Warning Suboperations   : 0
+I: Releasing Association
+
+
+== echoscu (未登记 AE) ==
+I: Requesting Association
+F: Association Rejected:
+F: Result: Rejected Permanent, Source: Service User
+F: Reason: Calling AE Title Not Recognized

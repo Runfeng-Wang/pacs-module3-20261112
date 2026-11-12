@@ -1,0 +1,17 @@
+$ openspec status --change add-pacs-image-server
+- Loading change status...
+Change: add-pacs-image-server
+Schema: spec-driven
+Change root: C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\openspec\changes\add-pacs-image-server
+Progress: 4/4 artifacts complete
+
+[x] proposal
+[x] specs
+[x] design
+[x] tasks
+
+All planning artifacts complete!
+Next: openspec instructions apply --change "add-pacs-image-server" --json
+$ openspec validate add-pacs-image-server --strict
+Change 'add-pacs-image-server' is valid
+exit=0

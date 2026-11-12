@@ -1,0 +1,328 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project
+configfile: pyproject.toml
+testpaths: tests
+collecting ... collected 91 items
+
+tests/test_alert_audit.py::test_r17_p1_normal_flow_zero_alerts PASSED    [  1%]
+tests/test_alert_audit.py::test_r17_n1_alert_aggregation_and_ack PASSED  [  2%]
+tests/test_alert_audit.py::test_r18_p1_audit_entries_and_chain_ok PASSED [  3%]
+tests/test_alert_audit.py::test_r18_n1_middle_entry_modified PASSED      [  4%]
+tests/test_alert_audit.py::test_r18_n2_tail_truncated PASSED             [  5%]
+tests/test_alert_audit.py::test_r18_n3_external_head_detects_double_truncation PASSED [  6%]
+tests/test_concurrency.py::test_cc1_concurrent_ingest_and_retrieve PASSED [  7%]
+tests/test_concurrency.py::test_cc3_association_limit PASSED             [  8%]
+tests/test_concurrency.py::test_cc4_same_uid_race PASSED                 [  9%]
+tests/test_conformance.py::test_r21_n1_storage_commitment_rejected PASSED [ 10%]
+tests/test_conformance.py::test_r21_n2_unsupported_transfer_syntax_rejected PASSED [ 12%]
+tests/test_conformance.py::test_r21_p1_dcmtk_interop PASSED              [ 13%]
+tests/test_docs_consistency.py::test_doc_status_codes_match_code PASSED  [ 14%]
+tests/test_docs_consistency.py::test_doc_implementation_uid_and_storage_list PASSED [ 15%]
+tests/test_docs_consistency.py::test_doc_transfer_syntax_order PASSED    [ 16%]
+tests/test_docs_consistency.py::test_spec_scenarios_match_tests PASSED   [ 17%]
+tests/test_gui_smoke.py::test_r20_p1_all_tabs_render_with_data PASSED    [ 18%]
+tests/test_gui_smoke.py::test_r20_n1_gui_rejects_invalid_peer PASSED     [ 19%]
+tests/test_gui_smoke.py::test_r20_n2_audit_tab_read_only PASSED          [ 20%]
+tests/test_independent_review_fixes.py::test_r14_n2_corrupt_or_missing_baseline_reported_not_aborting PASSED [ 21%]
+tests/test_independent_review_fixes.py::test_r15_n5_single_instance_error_isolated PASSED [ 23%]
+tests/test_independent_review_fixes.py::test_r16_n2_corrupt_baseline_blocked_on_retrieve PASSED [ 24%]
+tests/test_independent_review_fixes.py::test_r5_n3_anchor_failure_after_commit_rolls_back PASSED [ 25%]
+tests/test_independent_review_fixes.py::test_r5_n4_persistent_anchor_failure_then_recovery PASSED [ 26%]
+tests/test_independent_review_fixes.py::test_r18_n4_anchor_failure_does_not_crash_other_operations PASSED [ 27%]
+tests/test_integrity.py::test_r14_p1_baseline_recomputable PASSED        [ 28%]
+tests/test_integrity.py::test_r14_n1_baseline_tampered PASSED            [ 29%]
+tests/test_integrity.py::test_r15_p1_no_false_positive_after_normal_ops PASSED [ 30%]
+tests/test_integrity.py::test_r15_n1_pixel_changed_with_region PASSED    [ 31%]
+tests/test_integrity.py::test_r15_n2_study_date_changed PASSED           [ 32%]
+tests/test_integrity.py::test_r15_n3_file_missing PASSED                 [ 34%]
+tests/test_integrity.py::test_r15_n4_index_mismatch PASSED               [ 35%]
+tests/test_integrity.py::test_r16_p1_untampered_move_ok PASSED           [ 36%]
+tests/test_integrity.py::test_r16_p2_lossless_ts_conversion_no_alert PASSED [ 37%]
+tests/test_integrity.py::test_r16_n1_tampered_instance_blocked PASSED    [ 38%]
+tests/test_net_access.py::test_r1_p1_echo_ok PASSED                      [ 39%]
+tests/test_net_access.py::test_r1_n1_wrong_called_ae PASSED              [ 40%]
+tests/test_net_access.py::test_r2_p1_registered_accepted PASSED          [ 41%]
+tests/test_net_access.py::test_r2_n1_unregistered_rejected_alert PASSED  [ 42%]
+tests/test_net_access.py::test_r2_n2_ip_mismatch PASSED                  [ 43%]
+tests/test_net_access.py::test_r2_n3_disabled_rejected PASSED            [ 45%]
+tests/test_net_access.py::test_r3_p1_query_role_can_find PASSED          [ 46%]
+tests/test_net_access.py::test_r3_n1_store_only_cannot_move PASSED       [ 47%]
+tests/test_net_access.py::test_r3_n2_store_only_cannot_find PASSED       [ 48%]
+tests/test_net_access.py::test_r4_p1_add_peer_effective_without_restart PASSED [ 49%]
+tests/test_net_access.py::test_r4_n2_disable_then_rejected PASSED        [ 50%]
+tests/test_net_query_retrieve.py::test_r9_p1_find_studies_by_patient_id PASSED [ 51%]
+tests/test_net_query_retrieve.py::test_r9_p2_wildcard_date_range_chinese PASSED [ 52%]
+tests/test_net_query_retrieve.py::test_r9_n1_no_match_empty_success PASSED [ 53%]
+tests/test_net_query_retrieve.py::test_r9_n2_missing_upper_unique_key PASSED [ 54%]
+tests/test_net_query_retrieve.py::test_r9_n3_find_cancel PASSED          [ 56%]
+tests/test_net_query_retrieve.py::test_r10_p1_move_study_counts_and_hashes PASSED [ 57%]
+tests/test_net_query_retrieve.py::test_r10_n1_unknown_destination_no_outbound PASSED [ 58%]
+tests/test_net_query_retrieve.py::test_r10_n2_disabled_destination PASSED [ 59%]
+tests/test_net_query_retrieve.py::test_r11_p1_get_series PASSED          [ 60%]
+tests/test_net_query_retrieve.py::test_r11_n1_get_without_scp_role PASSED [ 61%]
+tests/test_net_query_retrieve.py::test_r11_n2_get_cancel PASSED          [ 62%]
+tests/test_net_store.py::test_r5_p1_stored_bytes_match_sender PASSED     [ 63%]
+tests/test_net_store.py::test_r5_n1_write_failure_a700 PASSED            [ 64%]
+tests/test_net_store.py::test_r5_n2_db_failure_c0ff PASSED               [ 65%]
+tests/test_net_store.py::test_r6_p1_complete_dataset PASSED              [ 67%]
+tests/test_net_store.py::test_r6_n1_missing_series_uid PASSED            [ 68%]
+tests/test_net_store.py::test_r6_n2_uid_mismatch PASSED                  [ 69%]
+tests/test_net_store.py::test_r6_n3_series_hierarchy_conflict PASSED     [ 70%]
+tests/test_net_store.py::test_r7_p1_identical_resend PASSED              [ 71%]
+tests/test_net_store.py::test_r7_p2_equivalent_encoding_resend PASSED    [ 72%]
+tests/test_net_store.py::test_r7_n1_uid_conflict_quarantined PASSED      [ 73%]
+tests/test_net_store.py::test_r7_n2_damaged_stored_copy_no_false_success PASSED [ 74%]
+tests/test_net_store.py::test_r8_p1_same_patient_two_studies PASSED      [ 75%]
+tests/test_net_store.py::test_r8_n1_same_name_different_id_not_merged PASSED [ 76%]
+tests/test_net_store.py::test_r8_n2_demographics_conflict_flag_only PASSED [ 78%]
+tests/test_net_store.py::test_r8_n3_empty_patient_id_grouped PASSED      [ 79%]
+tests/test_net_store.py::test_r13_n1_aborted_partial_not_visible PASSED  [ 80%]
+tests/test_net_store.py::test_r13_p1_resend_after_abort PASSED           [ 81%]
+tests/test_net_store.py::test_r19_p1_restart_persists PASSED             [ 82%]
+tests/test_net_store.py::test_r19_n1_orphan_file_quarantined PASSED      [ 83%]
+tests/test_net_store.py::test_r5_p2_endoscopy_and_secondary_capture PASSED [ 84%]
+tests/test_unit_core.py::test_config_roundtrip PASSED                    [ 85%]
+tests/test_unit_core.py::test_schema_created PASSED                      [ 86%]
+tests/test_unit_core.py::test_r4_n1_invalid_ae_title[AAAAAAAAAAAAAAAAA] PASSED [ 87%]
+tests/test_unit_core.py::test_r4_n1_invalid_ae_title[BAD\\AE] PASSED     [ 89%]
+tests/test_unit_core.py::test_r4_n1_invalid_ae_title[] PASSED            [ 90%]
+tests/test_unit_core.py::test_r4_n1_invalid_ae_title[   ] PASSED         [ 91%]
+tests/test_unit_core.py::test_r4_n1_invalid_ae_title[TAB\tAE] PASSED     [ 92%]
+tests/test_unit_core.py::test_r4_n1_invalid_ae_title[\u4e2d\u6587AE] PASSED [ 93%]
+tests/test_unit_core.py::test_r4_n1_invalid_peer_entries_rejected PASSED [ 94%]
+tests/test_unit_core.py::test_audit_chain_unit PASSED                    [ 95%]
+tests/test_unit_core.py::test_audit_gap_detected PASSED                  [ 96%]
+tests/test_unit_core.py::test_alert_aggregation_window PASSED            [ 97%]
+tests/test_unit_core.py::test_match_value_rules PASSED                   [ 98%]
+tests/test_unit_core.py::test_meta_and_tile_diff PASSED                  [100%]
+
+=================================== PASSES ====================================
+____________________ test_r17_n1_alert_aggregation_and_ack ____________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+______________________ test_r18_n1_middle_entry_modified ______________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_CHAIN_BROKEN [high] audit {'problems': ['第 3 条内容与 entry_hash 不符（记录被修改）'], 'first_break_seq': 3, 'head_seq': 9, 'anchor_max_seq': 9}
+___________________________ test_cc4_same_uid_race ____________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UID_CONFLICT [medium] instance:1.2.826.0.1.3680043.8.498.83375066874929803404642655023957494337 {'sop_uid': '1.2.826.0.1.3680043.8.498.83375066874929803404642655023957494337', 'source_ae': 'CT_SIM_2', 'quarantine_id': 1, 'pixel_changed': True, 'meta_changes': []}
+__________________________ test_r21_p1_dcmtk_interop __________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:NOT_LISTED@127.0.0.1 {'calling_ae': 'NOT_LISTED', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'NOT_LISTED'"}
+____________________ test_r20_p1_all_tabs_render_with_data ____________________
+----------------------------- Captured log setup ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT PIXEL_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.63232252977402438296354602279534551776 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.76519229374218540077033607702940004927', 'series_uid': '1.2.826.0.1.3680043.8.498.37185282274404229129919576479522055778', 'sop_uid': '1.2.826.0.1.3680043.8.498.63232252977402438296354602279534551776', 'baseline_pixel_sha256': '91038e61c761616e5845df433423f1298a983bce95c444a93cd75d246418095e', 'current_pixel_sha256': '9a2b13e5f7731e991d976b326ccac52916c65a86e4aaa7769e6141388ba319b7', 'regions': [{'frame': 1, 'tiles_changed': 1, 'row_range': [128, 159], 'col_range': [0, 31]}], 'note': '', 'context': {'detected_at': '2026-11-12T23:22:16.735+00:00', 'last_recorded_access': {'seq': 12, 'ts_utc': '2026-11-12T23:22:15.308+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:15.308+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:16.222093+00:00'}}
+____________________ test_r20_n1_gui_rejects_invalid_peer _____________________
+----------------------------- Captured log setup ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+_______________________ test_r20_n2_audit_tab_read_only _______________________
+----------------------------- Captured log setup ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+________ test_r14_n2_corrupt_or_missing_baseline_reported_not_aborting ________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.39017498812767877236689527420041762003 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.37051272760728582422933793255579963314', 'series_uid': '1.2.826.0.1.3680043.8.498.79362072128010414757698799255720429175', 'sop_uid': '1.2.826.0.1.3680043.8.498.39017498812767877236689527420041762003', 'problems': ['基线记录 HMAC 不符', 'meta_json 无法解析（JSONDecodeError）'], 'note': '基线本身不可信；以下比对结果仅供参考，无法解析的部分已跳过', 'context': {'detected_at': '2026-11-12T23:22:23.590+00:00', 'last_recorded_access': {'seq': 11, 'ts_utc': '2026-11-12T23:22:23.360+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:23.359+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:23.321748+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.22276338594923620944049255171585357764 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.37051272760728582422933793255579963314', 'series_uid': '1.2.826.0.1.3680043.8.498.79362072128010414757698799255720429175', 'sop_uid': '1.2.826.0.1.3680043.8.498.22276338594923620944049255171585357764', 'problems': ['基线记录 HMAC 不符', 'tiles_json 结构无效（应为含 supported 的对象）'], 'note': '基线本身不可信；以下比对结果仅供参考，无法解析的部分已跳过', 'context': {'detected_at': '2026-11-12T23:22:23.603+00:00', 'last_recorded_access': {'seq': 12, 'ts_utc': '2026-11-12T23:22:23.408+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:23.408+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:23.577827+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT PIXEL_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.22276338594923620944049255171585357764 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.37051272760728582422933793255579963314', 'series_uid': '1.2.826.0.1.3680043.8.498.79362072128010414757698799255720429175', 'sop_uid': '1.2.826.0.1.3680043.8.498.22276338594923620944049255171585357764', 'baseline_pixel_sha256': '95b2590fa985f4d9b3bf0fd0a6299f8144112ea3e4e37980ee81c3eb8591dbb8', 'current_pixel_sha256': '924e8a5051925df0b6cea7878de12b9a6d7ae25c0f42ece3e92264cd0a37976e', 'regions': [], 'note': '基线分块哈希不可用，只能报告整体像素变化', 'context': {'detected_at': '2026-11-12T23:22:23.603+00:00', 'last_recorded_access': {'seq': 12, 'ts_utc': '2026-11-12T23:22:23.408+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:23.408+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:23.577827+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.24528666605207020991230087459964211072 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.37051272760728582422933793255579963314', 'series_uid': '1.2.826.0.1.3680043.8.498.79362072128010414757698799255720429175', 'sop_uid': '1.2.826.0.1.3680043.8.498.24528666605207020991230087459964211072', 'problems': ['基线记录缺失'], 'note': '没有可比对的基线：只检查文件是否存在，不做内容与索引比对', 'context': {'detected_at': '2026-11-12T23:22:23.604+00:00', 'last_recorded_access': {'seq': 13, 'ts_utc': '2026-11-12T23:22:23.450+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:23.449+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:23.433682+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.24781051451978099731283783095197768758 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.37051272760728582422933793255579963314', 'series_uid': '1.2.826.0.1.3680043.8.498.79362072128010414757698799255720429175', 'sop_uid': '1.2.826.0.1.3680043.8.498.24781051451978099731283783095197768758', 'problems': ['基线记录 HMAC 不符', 'meta_json 结构无效（应为 {标签: {kw, vr, v}}）'], 'note': '基线本身不可信；以下比对结果仅供参考，无法解析的部分已跳过', 'context': {'detected_at': '2026-11-12T23:22:23.627+00:00', 'last_recorded_access': {'seq': 14, 'ts_utc': '2026-11-12T23:22:23.492+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:23.492+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:23.587605+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT METADATA_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.24781051451978099731283783095197768758 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.37051272760728582422933793255579963314', 'series_uid': '1.2.826.0.1.3680043.8.498.79362072128010414757698799255720429175', 'sop_uid': '1.2.826.0.1.3680043.8.498.24781051451978099731283783095197768758', 'changes': None, 'note': '基线元数据快照不可用，只能确认元数据哈希不符，无法给出前值', 'context': {'detected_at': '2026-11-12T23:22:23.627+00:00', 'last_recorded_access': {'seq': 14, 'ts_utc': '2026-11-12T23:22:23.492+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:23.492+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:23.587605+00:00'}}
+_________________ test_r15_n5_single_instance_error_isolated __________________
+------------------------------ Captured log call ------------------------------
+ERROR    pacs.integrity:integrity.py:177 verify_instance failed for 1.2.826.0.1.3680043.8.498.502847091427574172711142074965497121
+Traceback (most recent call last):
+  File "C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\src\pacs_server\integrity.py", line 175, in verify_instance
+    return self._verify_instance(row)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\tests\test_independent_review_fixes.py", line 78, in flaky
+    raise RuntimeError("injected verifier failure")
+RuntimeError: injected verifier failure
+WARNING  pacs.alerts:alerts.py:88 ALERT VERIFY_ERROR [medium] instance:1.2.826.0.1.3680043.8.498.502847091427574172711142074965497121 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.90340944153978707088632918768594659159', 'series_uid': '1.2.826.0.1.3680043.8.498.72617995833093372559168988280539158092', 'sop_uid': '1.2.826.0.1.3680043.8.498.502847091427574172711142074965497121', 'error': 'RuntimeError: injected verifier failure', 'note': '该实例核查过程异常，已跳过；其他实例继续核查。需人工检查'}
+______________ test_r16_n2_corrupt_baseline_blocked_on_retrieve _______________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.43639191513419688997100845781715865133 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.58296472429349650887125045125283625087', 'series_uid': '1.2.826.0.1.3680043.8.498.73703028357650272693203627149995163398', 'sop_uid': '1.2.826.0.1.3680043.8.498.43639191513419688997100845781715865133', 'problems': ['基线记录 HMAC 不符', 'meta_json 无法解析（JSONDecodeError）'], 'note': '基线本身不可信；以下比对结果仅供参考，无法解析的部分已跳过', 'context': {'detected_at': '2026-11-12T23:22:25.688+00:00', 'last_recorded_access': {'seq': 18, 'ts_utc': '2026-11-12T23:22:25.658+00:00', 'event_type': 'DICOM_MOVE', 'actor': 'WS_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:25.362+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:25.343297+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT RETRIEVE_BLOCKED [high] instance:1.2.826.0.1.3680043.8.498.43639191513419688997100845781715865133 {'sop_uid': '1.2.826.0.1.3680043.8.498.43639191513419688997100845781715865133', 'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.58296472429349650887125045125283625087', 'requester': 'WS_SIM_1', 'operation': 'C-MOVE', 'policy': 'block', 'sent': False, 'categories': ['BASELINE_TAMPERED']}
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.40567595589725199538459727288844791552 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.58296472429349650887125045125283625087', 'series_uid': '1.2.826.0.1.3680043.8.498.73703028357650272693203627149995163398', 'sop_uid': '1.2.826.0.1.3680043.8.498.40567595589725199538459727288844791552', 'problems': ['基线记录缺失'], 'note': '没有可比对的基线：只检查文件是否存在，不做内容与索引比对', 'context': {'detected_at': '2026-11-12T23:22:25.711+00:00', 'last_recorded_access': {'seq': 18, 'ts_utc': '2026-11-12T23:22:25.658+00:00', 'event_type': 'DICOM_MOVE', 'actor': 'WS_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:25.418+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:25.390644+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT RETRIEVE_BLOCKED [high] instance:1.2.826.0.1.3680043.8.498.40567595589725199538459727288844791552 {'sop_uid': '1.2.826.0.1.3680043.8.498.40567595589725199538459727288844791552', 'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.58296472429349650887125045125283625087', 'requester': 'WS_SIM_1', 'operation': 'C-MOVE', 'policy': 'block', 'sent': False, 'categories': ['BASELINE_TAMPERED']}
+______________ test_r5_n3_anchor_failure_after_commit_rolls_back ______________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'anchor-write', 'error': 'OSError: injected: audit anchor write failed', 'anchor_path': 'C:\\Users\\runru\\AppData\\Local\\Temp\\pytest-of-runru\\pytest-70\\test_r5_n3_anchor_failure_afte0\\runtime\\anchors\\audit-anchor.log', 'effect': '入库暂停（0xA701）；只读操作照常，记录写入数据库，恢复后补写锚点'}
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'post-commit', 'sop_uid': '1.2.826.0.1.3680043.8.498.58976144172428470001958716555524714308', 'source_ae': 'CT_SIM_1', 'rolled_back': True, 'store_accepted_seq': 14, 'error': 'OSError: injected: audit anchor write failed', 'state': '本次入库已撤销：无索引、无文件'}
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'anchor-write', 'error': 'OSError: injected: audit anchor write failed', 'anchor_path': 'C:\\Users\\runru\\AppData\\Local\\Temp\\pytest-of-runru\\pytest-70\\test_r5_n3_anchor_failure_afte0\\runtime\\anchors\\audit-anchor.log', 'effect': '入库暂停（0xA701）；只读操作照常，记录写入数据库，恢复后补写锚点'}
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'post-commit', 'sop_uid': '1.2.826.0.1.3680043.8.498.17283037571919369946148276539042205105', 'source_ae': 'CT_SIM_1', 'rolled_back': True, 'store_accepted_seq': 26, 'error': 'OSError: injected: audit anchor write failed', 'state': '本次入库已撤销：无索引、无文件'}
+_____________ test_r5_n4_persistent_anchor_failure_then_recovery ______________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'anchor-write', 'error': 'OSError: injected: audit anchor write failed', 'anchor_path': 'C:\\Users\\runru\\AppData\\Local\\Temp\\pytest-of-runru\\pytest-70\\test_r5_n4_persistent_anchor_f0\\runtime\\anchors\\audit-anchor.log', 'effect': '入库暂停（0xA701）；只读操作照常，记录写入数据库，恢复后补写锚点'}
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'pre-check', 'rejected_sop_uid': '1.2.826.0.1.3680043.8.498.63825496149986525931513554948090955009', 'source_ae': 'CT_SIM_1', 'error': 'OSError: injected: audit anchor write failed'}
+_________ test_r18_n4_anchor_failure_does_not_crash_other_operations __________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT AUDIT_ANCHOR_FAILURE [high] audit-anchor {'stage': 'anchor-write', 'error': 'OSError: injected: audit anchor write failed', 'anchor_path': 'C:\\Users\\runru\\AppData\\Local\\Temp\\pytest-of-runru\\pytest-70\\test_r18_n4_anchor_failure_doe0\\runtime\\anchors\\audit-anchor.log', 'effect': '入库暂停（0xA701）；只读操作照常，记录写入数据库，恢复后补写锚点'}
+WARNING  pacs.alerts:alerts.py:88 ALERT STORAGE_FAILURE [high] test {'note': 'pytest'}
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+________________________ test_r14_n1_baseline_tampered ________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT BASELINE_TAMPERED [high] instance:1.2.826.0.1.3680043.8.498.96276810988168952399845369472253007123 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.44669623447364169169153300498834943793', 'series_uid': '1.2.826.0.1.3680043.8.498.62920367768699591468078348410738042701', 'sop_uid': '1.2.826.0.1.3680043.8.498.96276810988168952399845369472253007123', 'problems': ['基线记录 HMAC 不符'], 'note': '基线本身不可信；以下比对结果仅供参考，无法解析的部分已跳过', 'context': {'detected_at': '2026-11-12T23:22:31.696+00:00', 'last_recorded_access': {'seq': 11, 'ts_utc': '2026-11-12T23:22:31.468+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:31.468+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:31.455753+00:00'}}
+____________________ test_r15_n1_pixel_changed_with_region ____________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT PIXEL_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.97424599029243215221334303048696103393 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.93509125330761026501153179138272421542', 'series_uid': '1.2.826.0.1.3680043.8.498.83300697535621210569848516177566037387', 'sop_uid': '1.2.826.0.1.3680043.8.498.97424599029243215221334303048696103393', 'baseline_pixel_sha256': 'a16440535b2b7f3b0b8dcf0918fc7d631fe997bc4086e1cf36c8cd9f70aaa5fd', 'current_pixel_sha256': '5331253ddc30736006dd3d13b3598188bf672d057515d722df913e5e5438809d', 'regions': [{'frame': 1, 'tiles_changed': 1, 'row_range': [64, 95], 'col_range': [0, 31]}], 'note': '', 'context': {'detected_at': '2026-11-12T23:22:35.950+00:00', 'last_recorded_access': {'seq': 13, 'ts_utc': '2026-11-12T23:22:35.788+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:35.788+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:35.917722+00:00'}}
+_______________________ test_r15_n2_study_date_changed ________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT METADATA_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.49673036598007462378564567242607229433 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.26366547957343935362692631453703796274', 'series_uid': '1.2.826.0.1.3680043.8.498.75215377335088037880933313088572114096', 'sop_uid': '1.2.826.0.1.3680043.8.498.49673036598007462378564567242607229433', 'changes': [{'tag': '(0008,0020)', 'keyword': 'StudyDate', 'key_field': True, 'before': '20261105', 'after': '20261106'}], 'context': {'detected_at': '2026-11-12T23:22:36.909+00:00', 'last_recorded_access': {'seq': 11, 'ts_utc': '2026-11-12T23:22:36.648+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:36.648+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:36.888809+00:00'}}
+__________________________ test_r15_n3_file_missing ___________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT FILE_MISSING [high] instance:1.2.826.0.1.3680043.8.498.55314995850250640054668261729692862501 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.10903958409527558657025950412014669395', 'series_uid': '1.2.826.0.1.3680043.8.498.30314285447037634280407714625597675813', 'sop_uid': '1.2.826.0.1.3680043.8.498.55314995850250640054668261729692862501', 'path': '2026/11/12/03b15b0a590e45c591cc473ff8cab4e6.dcm', 'context': {'detected_at': '2026-11-12T23:22:37.812+00:00', 'last_recorded_access': {'seq': 15, 'ts_utc': '2026-11-12T23:22:37.732+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:37.732+00:00', 'source_ae': 'CT_SIM_1'}}
+_________________________ test_r15_n4_index_mismatch __________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT INDEX_MISMATCH [high] instance:1.2.826.0.1.3680043.8.498.16411929104191200839450707963663472698 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.25302655172560751893509458652640060267', 'series_uid': '1.2.826.0.1.3680043.8.498.97230446576897513667398595018226748396', 'sop_uid': '1.2.826.0.1.3680043.8.498.16411929104191200839450707963663472698', 'diffs': [{'field': 'patients.patient_name', 'tag': '(0010,0010)', 'index_value': 'FAKE^NAME', 'baseline_value': 'TEST^PATIENT01'}], 'context': {'detected_at': '2026-11-12T23:22:38.723+00:00', 'last_recorded_access': {'seq': 11, 'ts_utc': '2026-11-12T23:22:38.474+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:38.474+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:38.456105+00:00'}}
+____________________ test_r16_n1_tampered_instance_blocked ____________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT PIXEL_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.71878458760421159495040958175593175413 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.24006632744556952744936521087595598161', 'series_uid': '1.2.826.0.1.3680043.8.498.30535609059180002354364079953857643798', 'sop_uid': '1.2.826.0.1.3680043.8.498.71878458760421159495040958175593175413', 'baseline_pixel_sha256': '5c65e4bc232a061e59bd5d61fdc3b1349e397a3642bad5c117e2dfb49fe3a497', 'current_pixel_sha256': '4b37ed86dae9230161127b083fa0c283bced16cfc63ace54a2129c5e48318488', 'regions': [{'frame': 1, 'tiles_changed': 1, 'row_range': [64, 95], 'col_range': [0, 31]}], 'note': '', 'context': {'detected_at': '2026-11-12T23:22:43.017+00:00', 'last_recorded_access': {'seq': 18, 'ts_utc': '2026-11-12T23:22:42.952+00:00', 'event_type': 'DICOM_MOVE', 'actor': 'WS_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:22:42.682+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:22:42.905939+00:00'}}
+WARNING  pacs.alerts:alerts.py:88 ALERT RETRIEVE_BLOCKED [high] instance:1.2.826.0.1.3680043.8.498.71878458760421159495040958175593175413 {'sop_uid': '1.2.826.0.1.3680043.8.498.71878458760421159495040958175593175413', 'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.24006632744556952744936521087595598161', 'requester': 'WS_SIM_1', 'operation': 'C-MOVE', 'policy': 'block', 'sent': False, 'categories': ['PIXEL_CHANGED']}
+_________________________ test_r1_n1_wrong_called_ae __________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT WRONG_CALLED_AE [low] peer:WS_SIM_1@127.0.0.1 {'calling_ae': 'WS_SIM_1', 'called_ae': 'WRONG_AE', 'ip': '127.0.0.1', 'reason': "被叫 AE 'WRONG_AE' 不是 'PACS_B'"}
+___________________ test_r2_n1_unregistered_rejected_alert ____________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ROGUE@127.0.0.1 {'calling_ae': 'ROGUE', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ROGUE'"}
+___________________________ test_r2_n2_ip_mismatch ____________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT PEER_ADDRESS_MISMATCH [medium] peer:CT_SPOOF@127.0.0.1 {'calling_ae': 'CT_SPOOF', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "AE 'CT_SPOOF' 登记 IP 为 10.0.0.5，实际来源 127.0.0.1"}
+________________________ test_r2_n3_disabled_rejected _________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT PEER_DISABLED [medium] peer:CT_SIM_2@127.0.0.1 {'calling_ae': 'CT_SIM_2', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "AE 'CT_SIM_2' 已停用"}
+______________________ test_r3_n1_store_only_cannot_move ______________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNAUTHORIZED_RETRIEVE [high] peer:CT_SIM_1@127.0.0.1 {'peer': 'CT_SIM_1', 'ip': '127.0.0.1', 'roles': ['STORE'], 'denied': ['1.2.840.10008.5.1.4.1.2.2.2'], 'stage': 'association-negotiation'}
+________________ test_r4_p1_add_peer_effective_without_restart ________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:ENDO_SIM_3@127.0.0.1 {'calling_ae': 'ENDO_SIM_3', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "未登记的 AE 'ENDO_SIM_3'"}
+______________________ test_r4_n2_disable_then_rejected _______________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT PEER_DISABLED [medium] peer:CT_SIM_1@127.0.0.1 {'calling_ae': 'CT_SIM_1', 'called_ae': 'PACS_B', 'ip': '127.0.0.1', 'reason': "AE 'CT_SIM_1' 已停用"}
+_________________ test_r10_n1_unknown_destination_no_outbound _________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNKNOWN_MOVE_DESTINATION [high] dest:UNKNOWN_WS {'requester': 'WS_SIM_1', 'ip': '127.0.0.1', 'destination': 'UNKNOWN_WS', 'reason': '目的地未登记'}
+______________________ test_r10_n2_disabled_destination _______________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNKNOWN_MOVE_DESTINATION [high] dest:WS_SIM_2 {'requester': 'WS_SIM_1', 'ip': '127.0.0.1', 'destination': 'WS_SIM_2', 'reason': '目的地已停用'}
+________________________ test_r5_n1_write_failure_a700 ________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT STORAGE_FAILURE [high] instance:1.2.826.0.1.3680043.8.498.37258812750760478767793775230347185281 {'stage': 'write', 'error': '[Errno 28] No space left on device (fault injection)', 'source_ae': 'CT_SIM_1'}
+_________________________ test_r5_n2_db_failure_c0ff __________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT STORAGE_FAILURE [high] instance:1.2.826.0.1.3680043.8.498.9056467313103018162996868622775772515 {'stage': 'db-commit', 'error': 'fault injection: commit failed', 'source_ae': 'CT_SIM_1'}
+_____________________ test_r7_n1_uid_conflict_quarantined _____________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UID_CONFLICT [medium] instance:1.2.826.0.1.3680043.8.498.54269436664495028707295336060464146915 {'sop_uid': '1.2.826.0.1.3680043.8.498.54269436664495028707295336060464146915', 'source_ae': 'CT_SIM_1', 'quarantine_id': 1, 'pixel_changed': True, 'meta_changes': []}
+_______________ test_r7_n2_damaged_stored_copy_no_false_success _______________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT STORED_COPY_DAMAGED [high] instance:1.2.826.0.1.3680043.8.498.31723988624281630671082030172096504113 {'sop_uid': '1.2.826.0.1.3680043.8.498.31723988624281630671082030172096504113', 'source_ae': 'CT_SIM_1', 'quarantine_id': 1, 'stored_copy_findings': ['PIXEL_CHANGED'], 'incoming_matches_baseline': True}
+WARNING  pacs.alerts:alerts.py:88 ALERT PIXEL_CHANGED [high] instance:1.2.826.0.1.3680043.8.498.31723988624281630671082030172096504113 {'patient_id': 'SYN0001', 'study_uid': '1.2.826.0.1.3680043.8.498.88938493573947772810354709428131288610', 'series_uid': '1.2.826.0.1.3680043.8.498.41587485817550361077079324102443654540', 'sop_uid': '1.2.826.0.1.3680043.8.498.31723988624281630671082030172096504113', 'baseline_pixel_sha256': '3f897a0f559886d4d2f12aed30e3df16654594d14dda053efc2b120f165f2736', 'current_pixel_sha256': '566c2feb2c2b90e9ab18833dd58cc300e71c786ba2dcad8e27c4ecb41721b474', 'regions': [{'frame': 1, 'tiles_changed': 1, 'row_range': [64, 95], 'col_range': [0, 31]}], 'note': '', 'context': {'detected_at': '2026-11-12T23:23:35.354+00:00', 'last_recorded_access': {'seq': 11, 'ts_utc': '2026-11-12T23:23:35.233+00:00', 'event_type': 'STORE_ACCEPTED', 'actor': 'CT_SIM_1', 'actor_ip': '127.0.0.1'}, 'received_at': '2026-11-12T23:23:35.232+00:00', 'source_ae': 'CT_SIM_1', 'file_mtime_untrusted': '2026-11-12T23:23:35.265330+00:00'}}
+_____________________ test_r19_n1_orphan_file_quarantined _____________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT ORPHAN_FILE [medium] file:2026/11/12/planted.dcm {'original_rel_path': '2026/11/12/planted.dcm', 'quarantine_id': 1}
+________________________ test_alert_aggregation_window ________________________
+------------------------------ Captured log call ------------------------------
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:X {}
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:X {}
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:X {}
+WARNING  pacs.alerts:alerts.py:88 ALERT UNREGISTERED_PEER [medium] peer:X {}
+- generated xml file: C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\docs\testing\logs\junit.xml -
+=========================== short test summary info ===========================
+PASSED tests/test_alert_audit.py::test_r17_p1_normal_flow_zero_alerts
+PASSED tests/test_alert_audit.py::test_r17_n1_alert_aggregation_and_ack
+PASSED tests/test_alert_audit.py::test_r18_p1_audit_entries_and_chain_ok
+PASSED tests/test_alert_audit.py::test_r18_n1_middle_entry_modified
+PASSED tests/test_alert_audit.py::test_r18_n2_tail_truncated
+PASSED tests/test_alert_audit.py::test_r18_n3_external_head_detects_double_truncation
+PASSED tests/test_concurrency.py::test_cc1_concurrent_ingest_and_retrieve
+PASSED tests/test_concurrency.py::test_cc3_association_limit
+PASSED tests/test_concurrency.py::test_cc4_same_uid_race
+PASSED tests/test_conformance.py::test_r21_n1_storage_commitment_rejected
+PASSED tests/test_conformance.py::test_r21_n2_unsupported_transfer_syntax_rejected
+PASSED tests/test_conformance.py::test_r21_p1_dcmtk_interop
+PASSED tests/test_docs_consistency.py::test_doc_status_codes_match_code
+PASSED tests/test_docs_consistency.py::test_doc_implementation_uid_and_storage_list
+PASSED tests/test_docs_consistency.py::test_doc_transfer_syntax_order
+PASSED tests/test_docs_consistency.py::test_spec_scenarios_match_tests
+PASSED tests/test_gui_smoke.py::test_r20_p1_all_tabs_render_with_data
+PASSED tests/test_gui_smoke.py::test_r20_n1_gui_rejects_invalid_peer
+PASSED tests/test_gui_smoke.py::test_r20_n2_audit_tab_read_only
+PASSED tests/test_independent_review_fixes.py::test_r14_n2_corrupt_or_missing_baseline_reported_not_aborting
+PASSED tests/test_independent_review_fixes.py::test_r15_n5_single_instance_error_isolated
+PASSED tests/test_independent_review_fixes.py::test_r16_n2_corrupt_baseline_blocked_on_retrieve
+PASSED tests/test_independent_review_fixes.py::test_r5_n3_anchor_failure_after_commit_rolls_back
+PASSED tests/test_independent_review_fixes.py::test_r5_n4_persistent_anchor_failure_then_recovery
+PASSED tests/test_independent_review_fixes.py::test_r18_n4_anchor_failure_does_not_crash_other_operations
+PASSED tests/test_integrity.py::test_r14_p1_baseline_recomputable
+PASSED tests/test_integrity.py::test_r14_n1_baseline_tampered
+PASSED tests/test_integrity.py::test_r15_p1_no_false_positive_after_normal_ops
+PASSED tests/test_integrity.py::test_r15_n1_pixel_changed_with_region
+PASSED tests/test_integrity.py::test_r15_n2_study_date_changed
+PASSED tests/test_integrity.py::test_r15_n3_file_missing
+PASSED tests/test_integrity.py::test_r15_n4_index_mismatch
+PASSED tests/test_integrity.py::test_r16_p1_untampered_move_ok
+PASSED tests/test_integrity.py::test_r16_p2_lossless_ts_conversion_no_alert
+PASSED tests/test_integrity.py::test_r16_n1_tampered_instance_blocked
+PASSED tests/test_net_access.py::test_r1_p1_echo_ok
+PASSED tests/test_net_access.py::test_r1_n1_wrong_called_ae
+PASSED tests/test_net_access.py::test_r2_p1_registered_accepted
+PASSED tests/test_net_access.py::test_r2_n1_unregistered_rejected_alert
+PASSED tests/test_net_access.py::test_r2_n2_ip_mismatch
+PASSED tests/test_net_access.py::test_r2_n3_disabled_rejected
+PASSED tests/test_net_access.py::test_r3_p1_query_role_can_find
+PASSED tests/test_net_access.py::test_r3_n1_store_only_cannot_move
+PASSED tests/test_net_access.py::test_r3_n2_store_only_cannot_find
+PASSED tests/test_net_access.py::test_r4_p1_add_peer_effective_without_restart
+PASSED tests/test_net_access.py::test_r4_n2_disable_then_rejected
+PASSED tests/test_net_query_retrieve.py::test_r9_p1_find_studies_by_patient_id
+PASSED tests/test_net_query_retrieve.py::test_r9_p2_wildcard_date_range_chinese
+PASSED tests/test_net_query_retrieve.py::test_r9_n1_no_match_empty_success
+PASSED tests/test_net_query_retrieve.py::test_r9_n2_missing_upper_unique_key
+PASSED tests/test_net_query_retrieve.py::test_r9_n3_find_cancel
+PASSED tests/test_net_query_retrieve.py::test_r10_p1_move_study_counts_and_hashes
+PASSED tests/test_net_query_retrieve.py::test_r10_n1_unknown_destination_no_outbound
+PASSED tests/test_net_query_retrieve.py::test_r10_n2_disabled_destination
+PASSED tests/test_net_query_retrieve.py::test_r11_p1_get_series
+PASSED tests/test_net_query_retrieve.py::test_r11_n1_get_without_scp_role
+PASSED tests/test_net_query_retrieve.py::test_r11_n2_get_cancel
+PASSED tests/test_net_store.py::test_r5_p1_stored_bytes_match_sender
+PASSED tests/test_net_store.py::test_r5_n1_write_failure_a700
+PASSED tests/test_net_store.py::test_r5_n2_db_failure_c0ff
+PASSED tests/test_net_store.py::test_r6_p1_complete_dataset
+PASSED tests/test_net_store.py::test_r6_n1_missing_series_uid
+PASSED tests/test_net_store.py::test_r6_n2_uid_mismatch
+PASSED tests/test_net_store.py::test_r6_n3_series_hierarchy_conflict
+PASSED tests/test_net_store.py::test_r7_p1_identical_resend
+PASSED tests/test_net_store.py::test_r7_p2_equivalent_encoding_resend
+PASSED tests/test_net_store.py::test_r7_n1_uid_conflict_quarantined
+PASSED tests/test_net_store.py::test_r7_n2_damaged_stored_copy_no_false_success
+PASSED tests/test_net_store.py::test_r8_p1_same_patient_two_studies
+PASSED tests/test_net_store.py::test_r8_n1_same_name_different_id_not_merged
+PASSED tests/test_net_store.py::test_r8_n2_demographics_conflict_flag_only
+PASSED tests/test_net_store.py::test_r8_n3_empty_patient_id_grouped
+PASSED tests/test_net_store.py::test_r13_n1_aborted_partial_not_visible
+PASSED tests/test_net_store.py::test_r13_p1_resend_after_abort
+PASSED tests/test_net_store.py::test_r19_p1_restart_persists
+PASSED tests/test_net_store.py::test_r19_n1_orphan_file_quarantined
+PASSED tests/test_net_store.py::test_r5_p2_endoscopy_and_secondary_capture
+PASSED tests/test_unit_core.py::test_config_roundtrip
+PASSED tests/test_unit_core.py::test_schema_created
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_ae_title[AAAAAAAAAAAAAAAAA]
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_ae_title[BAD\\AE]
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_ae_title[]
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_ae_title[   ]
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_ae_title[TAB\tAE]
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_ae_title[\u4e2d\u6587AE]
+PASSED tests/test_unit_core.py::test_r4_n1_invalid_peer_entries_rejected
+PASSED tests/test_unit_core.py::test_audit_chain_unit
+PASSED tests/test_unit_core.py::test_audit_gap_detected
+PASSED tests/test_unit_core.py::test_alert_aggregation_window
+PASSED tests/test_unit_core.py::test_match_value_rules
+PASSED tests/test_unit_core.py::test_meta_and_tile_diff
+======================= 91 passed in 166.62s (0:02:46) ========================

@@ -1,0 +1,120 @@
+$ pacs --runtime runtime/clismoke peer add --ae CT_SIM_1 --ip 127.0.0.1 --roles STORE
+{
+  "ae_title": "CT_SIM_1",
+  "host": "127.0.0.1",
+  "port": null,
+  "roles": [
+    "STORE"
+  ],
+  "enabled": true,
+  "description": ""
+}
+$ pacs --runtime runtime/clismoke peer add --ae WS_SIM_1 --ip 127.0.0.1 --port 11121 --roles QUERY RETRIEVE MOVE_DEST
+{
+  "ae_title": "WS_SIM_1",
+  "host": "127.0.0.1",
+  "port": 11121,
+  "roles": [
+    "QUERY",
+    "RETRIEVE",
+    "MOVE_DEST"
+  ],
+  "enabled": true,
+  "description": ""
+}
+$ pacs --runtime runtime/clismoke peer add --ae TOO_LONG_AE_TITLE_X --ip 127.0.0.1 --roles STORE   # 非法输入
+错误：AE Title 超过 16 个字符：19
+exit=2
+$ pacs --runtime runtime/clismoke synth runtime/clismoke-input --ct 4 --endo 2 --size 128
+CT_SYN0001: 4 个文件 -> runtime\clismoke-input\ct_syn0001
+ES_SYN0001: 2 个文件 -> runtime\clismoke-input\es_syn0001
+CT_SYN0002: 2 个文件 -> runtime\clismoke-input\ct_syn0002
+$ pacs sim store --ae CT_SIM_1 --port 11120 runtime/clismoke-input/ct_syn0001
+established=True rejected=False rj=(None,None,None)
+  CT_1.2.826.0.1.3680043.8.498.29427045070719159210034259074051742779.dcm: 0x0000 
+  CT_1.2.826.0.1.3680043.8.498.31201153671993357997960541575368284171.dcm: 0x0000 
+  CT_1.2.826.0.1.3680043.8.498.61302862050143841295754933552749568018.dcm: 0x0000 
+  CT_1.2.826.0.1.3680043.8.498.84172647019017072991084478737130933692.dcm: 0x0000 
+$ pacs sim find --ae WS_SIM_1 --port 11120 --level STUDY --key PatientID=SYN0001 --key StudyInstanceUID= --key NumberOfStudyRelatedInstances=
+established=True final=0x0 matches=1
+  SpecificCharacterSet=ISO_IR 192 | QueryRetrieveLevel=STUDY | RetrieveAETitle=PACS_B | PatientID=SYN0001 | StudyInstanceUID=1.2.826.0.1.3680043.8.498.44778088156931407281079051741842669637 | NumberOfStudyRelatedInstances=4
+$ pacs sim move --ae WS_SIM_1 --port 11120 --listen 11121 --key StudyInstanceUID=1.2.826.0.1.3680043.8.498.44778088156931407281079051741842669637
+established=True
+{
+  "final": "0x0",
+  "completed": 4,
+  "failed": 0,
+  "warning": 0,
+  "failed_uids": [],
+  "pending": 4,
+  "received_by_local_scp": 4
+}
+$ pacs sim echo --ae ROGUE --port 11120
+AssocResult(established=False, rejected=True, result=1, source=1, reason=3, statuses=[], accepted_abstract=[], rejected_abstract=[])
+$ pacs --runtime runtime/clismoke verify
+核查 4 个实例：正常 4，异常实例 0
+exit=0
+$ pacs --runtime runtime/clismoke alerts
+#1 2026-11-12T22:57:10.997+00:00 [medium] UNREGISTERED_PEER peer:ROGUE@127.0.0.1 x1 open
+   建议：核实该设备是否应接入；如应接入，由信息科登记白名单后再连接
+   详情：{"called_ae":"PACS_B","calling_ae":"ROGUE","ip":"127.0.0.1","reason":"未登记的 AE 'ROGUE'"}
+共 1 条
+$ pacs --runtime runtime/clismoke audit verify
+{
+  "ok": true,
+  "entries": 20,
+  "head_seq": 20,
+  "head_hash": "1cf09321f41f94c6389cfd07d647895acf68c3354836ac7bc06e0e510064e65d",
+  "problems": [],
+  "first_break_seq": null,
+  "anchor_max_seq": 20,
+  "unanchored_entries": 0
+}
+exit=0
+$ pacs --runtime runtime/clismoke audit tail -n 12
+    10 2026-11-12T14:57:06.879-08:00 ASSOCIATION_RELEASED       CT_SIM_1     127.0.0.1       assoc:ba6bfe1f7831                       success {}
+    11 2026-11-12T14:57:07.820-08:00 ASSOCIATION_ACCEPTED       WS_SIM_1     127.0.0.1       assoc:3423d216f789                       success {"abstract_syntaxes":["Study Root Query/Retrieve Information Model - FIND"],"accepted_contexts":1,"rejected_contexts":0}
+    12 2026-11-12T14:57:07.828-08:00 DICOM_FIND                 WS_SIM_1     127.0.0.1                                                success {"keys":{"NumberOfStudyRelatedInstances":"None","PatientID":"SYN0001","QueryRetrieveLevel":"STUDY","StudyInstanceUID":""},"matches":1,"model":"S"}
+    13 2026-11-12T14:57:07.837-08:00 ASSOCIATION_RELEASED       WS_SIM_1     127.0.0.1       assoc:3423d216f789                       success {}
+    14 2026-11-12T14:57:08.892-08:00 ASSOCIATION_ACCEPTED       WS_SIM_1     127.0.0.1       assoc:5309b2f974f7                       success {"abstract_syntaxes":["Study Root Query/Retrieve Information Model - MOVE"],"accepted_contexts":1,"rejected_contexts":0}
+    15 2026-11-12T14:57:08.909-08:00 DICOM_MOVE                 WS_SIM_1     127.0.0.1       dest:WS_SIM_1                            success {"destination":"WS_SIM_1@127.0.0.1:11121","instances":["1.2.826.0.1.3680043.8.498.29427045070719159210034259074051742779","1.2.826.0.1.3680043.8.498.31201153671
+    16 2026-11-12T14:57:08.965-08:00 DICOM_MOVE_RESULT          WS_SIM_1     127.0.0.1       assoc:5309b2f974f7                       success {"completed":4,"failed":0,"failed_uids":[],"remaining":0,"status":"0x0000","warning":0}
+    17 2026-11-12T14:57:08.974-08:00 ASSOCIATION_RELEASED       WS_SIM_1     127.0.0.1       assoc:5309b2f974f7                       success {}
+    18 2026-11-12T14:57:10.983-08:00 ASSOCIATION_REJECTED       ROGUE        127.0.0.1       called:PACS_B                            failure {"alert_type":"UNREGISTERED_PEER","assoc":"3a9d12acb379","message":"未登记的 AE 'ROGUE'","reason":3,"result":1,"source":1}
+    19 2026-11-12T14:57:10.997-08:00 ALERT_RAISED               system                       peer:ROGUE@127.0.0.1                     warning {"alert_id":1,"severity":"medium","type":"UNREGISTERED_PEER"}
+    20 2026-11-12T14:57:11.909-08:00 VERIFY_RUN                 cli-operator                 verification:1                           success {"anomalous_instances":0,"categories":[],"checked":4,"ok":4,"scope":{},"trigger":"manual"}
+    21 2026-11-12T14:57:13.754-08:00 AUDIT_VERIFY               cli-operator                                                          success {"entries":20,"expect_head":"","head":"20:1cf09321f41f94c6389cfd07d647895acf68c3354836ac7bc06e0e510064e65d","ok":true,"problems":0}
+$ pacs --runtime runtime/clismoke status
+{
+  "ae_title": "PACS_B",
+  "host": "127.0.0.1",
+  "port": 11120,
+  "running": false,
+  "active_associations": 0,
+  "max_associations": 20,
+  "retrieve_policy": "block",
+  "patients": 1,
+  "studies": 1,
+  "series": 1,
+  "instances": 4,
+  "open_alerts": 1,
+  "audit_head": "21:09d743e1ef862f0978a23d80fb6babab9d57e59656bb8bd662af4612d748c949"
+}
+
+# 注：上面的 status 输出来自修复前的版本，其中 "running": false 只反映 CLI 进程本身（服务运行在另一个进程里），容易误读。
+# 修复后 status 改为探测端口是否在监听。下面是服务停止后、用修复后版本再次运行的输出：
+$ pacs --runtime runtime/clismoke status
+{
+  "ae_title": "PACS_B",
+  "host": "127.0.0.1",
+  "port": 11120,
+  "max_associations": 20,
+  "retrieve_policy": "block",
+  "patients": 1,
+  "studies": 1,
+  "series": 1,
+  "instances": 4,
+  "open_alerts": 1,
+  "audit_head": "21:09d743e1ef862f0978a23d80fb6babab9d57e59656bb8bd662af4612d748c949",
+  "port_listening": false
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "scenario": "malformed_baseline_json",
+    "completed": false,
+    "exception": "JSONDecodeError",
+    "message": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",
+    "baseline_alerts": 0
+  },
+  {
+    "scenario": "audit_anchor_write_failure",
+    "store_statuses": [
+      49681
+    ],
+    "index_rows": 1,
+    "stored_files": 0
+  }
+]

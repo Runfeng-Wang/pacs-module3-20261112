@@ -1,0 +1,70 @@
+
+=== 步骤 1：登记白名单（AE + IP + 角色） ===
+  CT_SIM_1    127.0.0.1  端口=None 角色=STORE
+  ENDO_SIM_1  127.0.0.1  端口=None 角色=STORE
+  WS_SIM_1    127.0.0.1  端口=11113 角色=QUERY,RETRIEVE,MOVE_DEST
+  WS_SIM_2    127.0.0.1  端口=11114 角色=QUERY,RETRIEVE,MOVE_DEST
+
+=== 步骤 2：启动 PACS PACS_B@127.0.0.1:11112 ===
+  启动对账：{'orphans': [], 'missing': [], 'tmp_removed': 0}
+
+=== 步骤 3：生成合成数据（SYN0001 CT 20 张 512×512、内镜 5 张；SYN0002 中文姓名 CT 5 张） ===
+  CT_SYN0001: 20 个文件
+  ES_SYN0001: 5 个文件
+  CT_SYN0002: 5 个文件
+
+=== 步骤 4：CT 与内镜设备并发 C-STORE ===
+  ENDO_SIM_1: 5 个实例，状态集合 ['0x0']
+  CT_SIM_1: 25 个实例，状态集合 ['0x0']
+  耗时 2.9s；库内实例数 30
+  [通过] 全部 C-STORE 返回 0x0000
+
+=== 步骤 5：工作站 C-FIND（Study Root，PatientID=SYN0001） ===
+  检查 20261108 ES 张数=5 UID=1.2.826.0.1.3680043.8.498.17836086132851880791151440949129489214
+  检查 20261105 CT 张数=20 UID=1.2.826.0.1.3680043.8.498.90241942120353634075544902595182626982
+  [通过] C-FIND 返回 2 个检查且最终 0x0000
+
+=== 步骤 6：C-MOVE 到已登记工作站 WS_SIM_1，并比对收到的哈希 ===
+  final=0x0000 完成=20 失败=0 收到=20 哈希一致=True
+  [通过] C-MOVE 完成 20、失败 0、哈希一致
+
+=== 步骤 7：C-GET（WS_SIM_2 取回内镜检查） ===
+  final=0x0000 完成=5
+  [通过] C-GET 完成 5
+
+=== 步骤 8：未登记设备 ROGUE 尝试连接；越权目的地 C-MOVE ===
+  ROGUE: rejected=True RJ=(1,1,3)
+  C-MOVE 到 UNKNOWN_WS: final=0xA801
+  [通过] ROGUE 被 RJ(1,1,3) 拒绝
+  [通过] 未登记目的地返回 0xA801
+
+=== 步骤 9：全量完整性核查（正常操作之后，期望 0 异常） ===
+  核查 30，异常实例 0
+  [通过] 正常操作后 0 异常
+
+=== 步骤 10：【篡改注入】绕过 PACS 改 1 张 CT 的像素、另 1 张的 StudyDate，然后核查 ===
+  已改像素：6a9ef931103e42648eec48d87d4b1c20.dcm；已改 StudyDate：20261105 -> 20261106
+  [PIXEL_CHANGED] 实例 651852554138 -> [{'frame': 1, 'tiles_changed': 1, 'row_range': [256, 287], 'col_range': [0, 31]}]
+  [METADATA_CHANGED] 实例 926037833468 -> [{'tag': '(0008,0020)', 'keyword': 'StudyDate', 'key_field': True, 'before': '20261105', 'after': '20261106'}]
+  [通过] 检出 PIXEL_CHANGED 与 METADATA_CHANGED
+
+=== 步骤 11：再次 C-MOVE：异常影像被阻断 ===
+  final=0xB000 完成=18 失败=2 失败列表=2
+  [通过] 阻断 2 张：0xB000、失败 2
+
+=== 步骤 12：审计链校验与导出 ===
+  ok=True 条数=72 链头=72:828b7606d331dcb9…（可带外记录）
+  已导出 73 条 -> C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\runtime\demo\audit-export.csv
+  [通过] 审计链完整
+
+=== 步骤 13：当前告警 ===
+  #6 [high] RETRIEVE_BLOCKED instance:1.2.826.0.1.3680043.8.498.3830829240445557621763265 x1
+  #5 [high] RETRIEVE_BLOCKED instance:1.2.826.0.1.3680043.8.498.8683389336790924786380849 x1
+  #4 [high] METADATA_CHANGED instance:1.2.826.0.1.3680043.8.498.3830829240445557621763265 x2
+  #3 [high] PIXEL_CHANGED instance:1.2.826.0.1.3680043.8.498.8683389336790924786380849 x2
+  #2 [high] UNKNOWN_MOVE_DESTINATION dest:UNKNOWN_WS x1
+  #1 [medium] UNREGISTERED_PEER peer:ROGUE@127.0.0.1 x1
+
+状态：{'ae_title': 'PACS_B', 'host': '127.0.0.1', 'port': 11112, 'running': True, 'active_associations': 0, 'max_associations': 20, 'retrieve_policy': 'block', 'patients': 2, 'studies': 3, 'series': 3, 'instances': 30, 'open_alerts': 6, 'audit_head': '74:bda7191c1c001879a1cafb92884c889a812eecdae03bdefa5a750037056fe0ec', 'audit_anchor_ok': True}
+
+演示自检：10/10 通过

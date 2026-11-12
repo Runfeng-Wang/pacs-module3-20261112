@@ -1,0 +1,18 @@
+[
+  {
+    "scenario": "malformed_baseline_json",
+    "completed": true,
+    "categories": [
+      "BASELINE_TAMPERED"
+    ],
+    "baseline_alerts": 1
+  },
+  {
+    "scenario": "audit_anchor_write_failure",
+    "store_statuses": [
+      42753
+    ],
+    "index_rows": 0,
+    "stored_files": 0
+  }
+]

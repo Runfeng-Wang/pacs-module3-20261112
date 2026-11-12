@@ -1,0 +1,19 @@
+$ openspec --version
+1.15.0
+$ openspec init --tools claude --language zh-CN --no-animation .
+(输出见会话；创建 openspec/ 与 .claude/ 技能，schema: spec-driven)
+$ openspec new change add-pacs-image-server
+Created change 'add-pacs-image-server'
+$ openspec status --change add-pacs-image-server
+- Loading change status...
+Change: add-pacs-image-server
+Schema: spec-driven
+Change root: C:\Users\runru\Documents\Codex\2026-11-12\20261112-zip-md-claude-code-agent\work\submission\My-Project\openspec\changes\add-pacs-image-server
+Progress: 0/4 artifacts complete
+
+[ ] proposal
+[-] specs (blocked by: proposal)
+[-] design (blocked by: proposal)
+[-] tasks (blocked by: specs, design)
+
+Next: openspec instructions proposal --change "add-pacs-image-server" --json
